@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Garagem JL - Estética Automotiva</title>
   <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="header">
@@ -256,6 +255,40 @@
       </div>
     </section>
 
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="testimonials-wrapper">
+          <div class="testimonials-carousel">
+            <div class="testimonial">
+              <p>🚘 "Meu carro ficou impecável! Serviço excelente e atendimento nota 10!"</p>
+              <span>— <strong>Ricardo Silva</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Nunca vi minha moto tão brilhante! Recomendo demais!"</p>
+              <span>— <strong>Alícia dos Santos</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Atendimento e serviço top demais, recomendo muito!"</p>
+              <span>— <strong>Pedro Henrique</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Sem duvidas foi o melhor lugar que encontrei para cuidadar do meu carro!"</p>
+              <span>— <strong>Luiz Carlos Pereira</strong></span>
+            </div>
+              <div class="testimonial">
+              <p>✨ "Top demais ! Minha moto ficou nova"</p>
+              <span>— <strong>Alex Oliveira</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
             <section class="section section-alt">
   <div class="container">
     <div class="section-header">
@@ -351,8 +384,8 @@
       </p>
     </div>
   </footer>
-
-  <script type="module">
+  
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getFirestore, collection, addDoc, getDocs, query, orderBy }
     from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
@@ -369,7 +402,6 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // Torna tudo acessível ao script.js
   window.db = db;
   window.addDoc = addDoc;
   window.collection = collection;
@@ -378,6 +410,6 @@
   window.query = query;
 </script>
 
+<script src="script.js"></script>
 </body>
 </html>
-
