@@ -132,3 +132,52 @@ if (reviewForm) {
 }
 
 loadReviews();
+
+async function loadReviews() {
+  if (!reviewsList) return;
+
+  // Deixa uma mensagem inicial
+  reviewsList.innerHTML = "";
+  const loadingMsg = document.createElement("p");
+  loadingMsg.textContent = "Carregando avaliações...";
+  loadingMsg.classList.add("loading-message");
+  reviewsList.appendChild(loadingMsg);
+
+  // Busca no Firestore
+  const q = window.query(
+    window.collection(window.db, "reviews"),
+    window.orderBy("createdAt", "desc")
+  );
+
+  let snapshot;
+  try {
+    snapshot = await window.getDocs(q);
+  } catch (e) {
+    loadingMsg.textContent = "Erro ao carregar avaliações.";
+    return;
+  }
+
+  // Remove a mensagem de carregamento assim que os dados chegam
+  reviewsList.innerHTML = "";
+
+  if (snapshot.empty) {
+    reviewsList.innerHTML = "<p>Nenhuma avaliação ainda.</p>";
+    return;
+  }
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    const date = data.createdAt.toDate().toLocaleDateString("pt-BR");
+
+    const item = document.createElement("div");
+    item.classList.add("review-item");
+
+    item.innerHTML = `
+      <h4>${data.name}</h4>
+      <p>${data.message}</p>
+      <span class="review-date">${date}</span>
+    `;
+
+    reviewsList.appendChild(item);
+  });
+}
