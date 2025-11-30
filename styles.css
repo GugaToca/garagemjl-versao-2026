@@ -817,3 +817,12 @@ body {
   font-size: .85rem;
   color: #888;
 }
+
+.loading-message {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  opacity: 0.8;
+}
