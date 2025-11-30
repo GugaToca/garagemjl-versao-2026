@@ -31,26 +31,17 @@ function showTestimonial(index) {
   if (!testimonials.length) return;
 
   testimonials.forEach((t, i) => {
-    // só deixa visível o depoimento atual
-    if (i === index) {
-      t.style.display = 'block';
-    } else {
-      t.style.display = 'none';
-    }
+    t.style.display = i === index ? 'block' : 'none';
   });
 }
 
-// Inicializa depoimentos
 if (testimonials.length) {
   showTestimonial(testimonialIndex);
-
   setInterval(() => {
     testimonialIndex = (testimonialIndex + 1) % testimonials.length;
     showTestimonial(testimonialIndex);
   }, 3000);
 }
-
-
 
 // BOTÃO VOLTAR AO TOPO -------------------------------------------
 const backToTopButton = document.getElementById('backToTop');
@@ -58,19 +49,12 @@ const backToTopButton = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   if (!backToTopButton) return;
 
-  if (window.scrollY > 300) {
-    backToTopButton.style.display = 'block';
-  } else {
-    backToTopButton.style.display = 'none';
-  }
+  backToTopButton.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
 
 if (backToTopButton) {
   backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
@@ -83,16 +67,34 @@ const reviewsList = document.getElementById("reviewsList");
 async function loadReviews() {
   if (!reviewsList) return;
 
-  reviewsList.innerHTML = "<p>Carregando avaliações...</p>";
+  // cria mensagem de carregamento
+  reviewsList.innerHTML = "";
+  const loadingMsg = document.createElement("p");
+  loadingMsg.textContent = "Carregando avaliações...";
+  loadingMsg.classList.add("loading-message");
+  reviewsList.appendChild(loadingMsg);
 
+  // consulta firestore
   const q = window.query(
     window.collection(window.db, "reviews"),
     window.orderBy("createdAt", "desc")
   );
 
-  const snapshot = await window.getDocs(q);
+  let snapshot;
+  try {
+    snapshot = await window.getDocs(q);
+  } catch (e) {
+    loadingMsg.textContent = "Erro ao carregar avaliações.";
+    return;
+  }
 
+  // remove mensagem
   reviewsList.innerHTML = "";
+
+  if (snapshot.empty) {
+    reviewsList.innerHTML = "<p>Nenhuma avaliação ainda.</p>";
+    return;
+  }
 
   snapshot.forEach(doc => {
     const data = doc.data();
@@ -131,53 +133,5 @@ if (reviewForm) {
   });
 }
 
+// Executa ao abrir
 loadReviews();
-
-async function loadReviews() {
-  if (!reviewsList) return;
-
-  // Deixa uma mensagem inicial
-  reviewsList.innerHTML = "";
-  const loadingMsg = document.createElement("p");
-  loadingMsg.textContent = "Carregando avaliações...";
-  loadingMsg.classList.add("loading-message");
-  reviewsList.appendChild(loadingMsg);
-
-  // Busca no Firestore
-  const q = window.query(
-    window.collection(window.db, "reviews"),
-    window.orderBy("createdAt", "desc")
-  );
-
-  let snapshot;
-  try {
-    snapshot = await window.getDocs(q);
-  } catch (e) {
-    loadingMsg.textContent = "Erro ao carregar avaliações.";
-    return;
-  }
-
-  // Remove a mensagem de carregamento assim que os dados chegam
-  reviewsList.innerHTML = "";
-
-  if (snapshot.empty) {
-    reviewsList.innerHTML = "<p>Nenhuma avaliação ainda.</p>";
-    return;
-  }
-
-  snapshot.forEach(doc => {
-    const data = doc.data();
-    const date = data.createdAt.toDate().toLocaleDateString("pt-BR");
-
-    const item = document.createElement("div");
-    item.classList.add("review-item");
-
-    item.innerHTML = `
-      <h4>${data.name}</h4>
-      <p>${data.message}</p>
-      <span class="review-date">${date}</span>
-    `;
-
-    reviewsList.appendChild(item);
-  });
-}
