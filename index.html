@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garagem JL - Estética Automotiva</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <h1 class="logo">
+        <img src="garagemjl_nv.png" alt="Garagem JL - Estética Automotiva" />
+      </h1>
+
+      <nav class="nav">
+        <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        <ul class="menu">
+          <li><a href="#about">Sobre nós</a></li>
+          <li><a href="#nossos-servicos">Serviços</a></li>
+          <li><a href="#galeria">Antes e depois</a></li>
+          <li><a href="#cartão-fidelidade">Cartão Fidelidade</a></li>
+          <li><a href="#local">Nosso local</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / SLIDER -->
+    <section id="hero" class="hero">
+      <div class="slider-container">
+        <div class="slider">
+          <img src="banner1garagem.jpg" class="slide active" alt="Estética automotiva Garagem JL 1" />
+          <img src="banner2garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 2" />
+          <img src="banner3garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 3" />
+          <img src="banner4garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 4" />
+          <img src="banner5_1garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 5" />
+          <img src="banner6garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 6" />
+          <img src="banner7garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 7" />
+          <img src="banner8garagem.jpg" class="slide" alt="Estética automotiva Garagem JL 8" />
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)" aria-label="Imagem anterior">
+          &#10094;
+        </button>
+        <button class="next" onclick="moveSlide(1)" aria-label="Próxima imagem">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sobre nós</h2>
+          <p class="section-subtitle">
+            Cuidado, dedicação e resultado de alto padrão para o seu veículo.
+          </p>
+        </div>
+        <p class="section-text">
+          Na <strong>Garagem JL</strong>, oferecemos serviços de lavagem e estética automotiva com qualidade e excelência. 
+          Nosso compromisso é garantir que seu veículo esteja sempre impecável, com aquele aspecto de carro novo e 
+          protegido para o dia a dia.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="nossos-servicos" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Nossos serviços</h2>
+          <p class="section-subtitle">
+            Soluções completas para renovar, proteger e valorizar o seu carro.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>🚘 Lavagem completa</h3>
+            <p>
+              Remoção de sujeira pesada, acabamento detalhado e proteção da pintura. Seu veículo limpo por fora e por dentro.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>🛋️ Higienização interna</h3>
+            <p>
+              Limpeza profunda de bancos, carpetes e estofados, eliminando ácaros, odores e manchas.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>🛡️ Proteção de pintura</h3>
+            <p>
+              Tratamentos que ajudam a preservar o brilho, reduzir marcas e aumentar a durabilidade da pintura.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL & CONTATO -->
+    <section id="contatos" class="section section-alt">
+      <div class="container local-grid">
+        <div class="local-info">
+          <div class="section-header align-left">
+            <h2>Nosso local</h2>
+            <p class="section-subtitle">
+              Fácil acesso e estrutura preparada para receber você e seu veículo.
+            </p>
+          </div>
+
+          <p>📍 <strong>Endereço:</strong> Rua Milton Gilberto Tagliari, Nº 1201, Egydio Zani</p>
+          <p>São José do Rio Preto - SP</p>
+          <p>📞 <strong>Telefone:</strong> (17) 99263-6776</p>
+
+          <div class="contact-cta">
+            <a href="https://wa.me/5517992636776" class="btn btn-outline" target="_blank" rel="noopener">
+              Falar no WhatsApp
+            </a>
+            <a href="https://www.instagram.com/garagem_jl" class="btn-link" target="_blank" rel="noopener">
+              Ver Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="local-map" id="local">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4338.931275548659!2d-49.38076973624681!3d-20.72168805653949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bdab392e22b613%3A0xf63aab9edc43d2a9!2sEgydio%20zani!5e0!3m2!1spt-BR!2sbr!4v1744067165161!5m2!1spt-BR!2sbr"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATENDIMENTO A DOMICÍLIO -->
+    <section class="section">
+      <div class="container">
+        <div class="feature-card feature-primary">
+          <div>
+            <h2>🚗 Atendemos a domicílio</h2>
+            <p>
+              Levamos nossos serviços até você, com a mesma qualidade e cuidado da Garagem JL.
+              Ideal para quem busca praticidade sem abrir mão de um resultado impecável.
+            </p>
+          </div>
+          <a href="https://wa.me/5517992636776" class="btn btn-light" target="_blank" rel="noopener">
+            Agendar visita
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARTÃO FIDELIDADE -->
+    <section id="cartão-fidelidade" class="section section-alt">
+      <div class="container">
+        <div class="feature-card">
+          <div>
+            <h2>Cartão fidelidade Garagem JL</h2>
+            <p>
+              Complete seu cartão e ganhe <strong>30% de desconto</strong> na próxima lavagem
+              ou uma <strong>remoção de chuva ácida dos vidros</strong> do seu veículo.
+            </p>
+          </div>
+          <div class="card-image-wrapper">
+            <img
+              src="cartao_fidelidade.jpeg"
+              alt="Cartão Fidelidade Garagem JL"
+              class="card-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA ANTES E DEPOIS -->
+    <section id="galeria" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Antes e depois</h2>
+          <p class="section-subtitle">
+            Resultados reais dos trabalhos realizados na Garagem JL.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Motor -->
+          <div class="gallery-item">
+            <h3>Limpeza de motor</h3>
+            <div class="media-pair">
+              <figure>
+                <img src="motor_antes.jpeg" alt="Motor antes da limpeza" />
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <img src="motor_depois.jpeg" alt="Motor depois da limpeza" />
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Carro – pintura -->
+          <div class="gallery-item">
+            <h3>Tratamento de pintura</h3>
+            <div class="media-pair">
+              <figure>
+                <video src="videocarro_antes.mp4" controls></video>
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <video src="videocarro_depois.mp4" controls></video>
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Carpete -->
+          <div class="gallery-item">
+            <h3>Higienização de carpete</h3>
+            <div class="media-pair">
+              <figure>
+                <video src="video_estetica_carpete_antes.mp4" controls></video>
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <video src="video_estetica_carpete_depois.mp4" controls></video>
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- Porta-malas -->
+          <div class="gallery-item">
+            <h3>Limpeza de porta-malas</h3>
+            <div class="media-pair">
+              <figure>
+                <video src="porta_mala_antes.mp4" controls></video>
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <video src="porta_malas_depois.mp4" controls></video>
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="testimonials-wrapper">
+          <div class="testimonials-carousel">
+            <div class="testimonial">
+              <p>🚘 "Meu carro ficou impecável! Serviço excelente e atendimento nota 10!"</p>
+              <span>— <strong>Ricardo Silva</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Nunca vi minha moto tão brilhante! Recomendo demais!"</p>
+              <span>— <strong>Alícia dos Santos</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Atendimento e serviço top demais, recomendo muito!"</p>
+              <span>— <strong>Pedro Henrique</strong></span>
+            </div>
+            <div class="testimonial">
+              <p>✨ "Sem duvidas foi o melhor lugar que encontrei para cuidadar do meu carro!"</p>
+              <span>— <strong>Luiz Carlos Pereira</strong></span>
+            </div>
+              <div class="testimonial">
+              <p>✨ "Top demais ! Minha moto ficou nova"</p>
+              <span>— <strong>Alex Oliveira</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+            <section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Deixe sua avaliação</h2>
+      <p class="section-subtitle">Sua opinião é muito importante para nós!</p>
+    </div>
+
+    <form id="reviewForm" class="review-form">
+      <input type="text" id="reviewName" placeholder="Seu nome" required />
+      <textarea id="reviewMessage" placeholder="Sua avaliação" required></textarea>
+      <button type="submit" class="btn btn-primary">Enviar avaliação</button>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Avaliações reais dos clientes</h2>
+    </div>
+
+    <div id="reviewsList" class="reviews-list"></div>
+  </div>
+</section>
+
+
+    <!-- CTA FINAL -->
+    <section id="cta" class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h2>Pronto para transformar o seu companheiro do dia a dia?</h2>
+            <p>
+              Agende agora seu serviço e deixe seu veículo impecável. Cuidamos do seu carro como se fosse nosso.
+            </p>
+          </div>
+          <a href="https://wa.me/5517992636776" class="btn btn-primary" target="_blank" rel="noopener">
+            Agendar agora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REDES SOCIAIS -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Entre em contato</h2>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/garagem_jl" target="_blank" class="social instagram" rel="noopener">
+            <img src="instagram.png" alt="Instagram" />
+            <span>@garagem_jl</span>
+          </a>
+
+          <a href="https://wa.me/5517992636776" target="_blank" class="social whatsapp" rel="noopener">
+            <img src="whatsapp.png" alt="WhatsApp" />
+            <span>(17) 99263-6776</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÃO WHATSAPP (MOBILE) -->
+  <a
+    href="https://wa.me/5517992636776"
+    class="btn-whatsapp"
+    target="_blank"
+    rel="noopener"
+  >
+    <img src="whatsapp.png" alt="WhatsApp" />
+    <span>Agendar pelo Whats</span>
+  </a>
+
+  <!-- BOTÃO VOLTAR AO TOPO (USA O SEU JS EXISTENTE) -->
+  <button id="backToTop" aria-label="Voltar ao topo">▲</button>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>&copy; 2025 Garagem JL. Todos os direitos reservados.</p>
+      <p class="footer-verse">
+        “Pense em Deus em tudo o que você faz, e Ele vai te guiar pelo caminho certo”
+        <br />
+        <span>(Provérbios 3.6)</span>
+      </p>
+      <p class="footer-dev">
+        Desenvolvido por
+        <a href="https://www.instagram.com/studio.linhas" target="_blank" rel="noopener">
+          Studio Linhas
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, query, orderBy }
+    from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCJ6uH3aUWdzdSIYnU1iqzNU2aHUMiVRCA",
+    authDomain: "garagem-jl.firebaseapp.com",
+    projectId: "garagem-jl",
+    storageBucket: "garagem-jl.firebasestorage.app",
+    messagingSenderId: "770734415702",
+    appId: "1:770734415702:web:6119b69d29c76398b700f7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Torna tudo acessível ao script.js
+  window.db = db;
+  window.addDoc = addDoc;
+  window.collection = collection;
+  window.getDocs = getDocs;
+  window.orderBy = orderBy;
+  window.query = query;
+</script>
+
+</body>
+</html>
